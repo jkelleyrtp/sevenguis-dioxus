@@ -1,5 +1,7 @@
 # Seven Guis - Dioxus
 
+https://eugenkiss.github.io/7guis/tasks/
+
 - [x] Counter
 - [x] Temperature
 - [ ] Flight Booker
