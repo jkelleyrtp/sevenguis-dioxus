@@ -1,12 +1,8 @@
 use dioxus::prelude::*;
 
-fn main() {
-    dioxus::desktop::launch(app)
-}
-
-fn app(cx: Scope) -> Element {
-    let celcius = use_state(&cx, || 0.0);
-    let farenheight = use_state(&cx, || 0.0);
+pub fn app(cx: Scope) -> Element {
+    let celcius = use_state(cx, || 0.0);
+    let farenheight = use_state(cx, || 0.0);
 
     cx.render(rsx! {
         div {
@@ -20,7 +16,7 @@ fn app(cx: Scope) -> Element {
                     }
                 }
             }
-            label {" Celsius ="}
+            label { " Celsius =" }
             input {
                 r#type: "number",
                 value: "{farenheight}",
@@ -31,7 +27,7 @@ fn app(cx: Scope) -> Element {
                     }
                 }
             }
-            label {"Farhenheit"}
+            label { "Farhenheit" }
         }
     })
 }

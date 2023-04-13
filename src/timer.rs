@@ -1,14 +1,10 @@
-use dioxus::{core::to_owned, prelude::*};
+use dioxus::prelude::*;
 
-fn main() {
-    dioxus::desktop::launch(app);
-}
+pub fn app(cx: Scope) -> Element {
+    let duration = use_state(cx, || 10.0);
+    let progress = use_state(cx, || 0.0);
 
-fn app(cx: Scope) -> Element {
-    let duration = use_state(&cx, || 10.0);
-    let progress = use_state(&cx, || 0.0);
-
-    use_future(&cx, (), |_| {
+    use_future(cx, (), |_| {
         to_owned![duration, progress];
         async move {
             loop {
@@ -36,10 +32,7 @@ fn app(cx: Scope) -> Element {
                     duration.set(val.value.parse::<f32>().unwrap());
                 }
             }
-            button {
-                onclick: move |_| progress.set(0.0),
-                "Reset"
-            }
+            button { onclick: move |_| progress.set(0.0), "Reset" }
         }
     })
 }

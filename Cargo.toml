@@ -6,5 +6,8 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-dioxus = { version = "0.2.4", features = ["desktop"] }
+chrono = "0.4.24"
+dioxus = { version = "0.3" }
+dioxus-desktop = { version = "0.3" }
+time = "0.3.20"
 tokio = { version = "1.18.1", features = ["full"] }
